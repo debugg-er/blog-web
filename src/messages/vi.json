@@ -1,0 +1,15 @@
+{
+  "login": {
+    "label": {
+      "email": "Email:",
+      "password": "Password:"
+    },
+    "action": {
+      "login": "Login with your email"
+    },
+    "title": {
+      "login": "Test",
+      "loginDesc": "Test2"
+    }
+  }
+}
