@@ -4,7 +4,7 @@ import { FaLayerGroup, FaMoon, FaSun } from 'react-icons/fa'
 import { Combobox, Flex, Text, useCombobox } from '@mantine/core'
 
 import { useRouter } from '@/navigation'
-import { Workspace } from '@/types/workspace'
+import { Workspace, WorkspaceType } from '@/types/workspace'
 import { getWorkspaceName } from '@/utils/workspace'
 
 export type SidebarWorkspaceProps = {
@@ -21,7 +21,8 @@ export default function SidebarWorkspace({ currentWorkspaceId, workspaces }: Sid
   }
 
   const selectedWorkspace = workspaces.find((w) => w.id.toString() === currentWorkspaceId)
-  const unselectedWorkspaces = workspaces.filter((w) => w.id.toString() !== currentWorkspaceId)
+  const personalWorkspace = workspaces.find((w) => w.type === WorkspaceType.Personal)
+  const customWorkspaces = workspaces.filter((w) => w.type !== WorkspaceType.Personal)
   return (
     <Flex className="py-2 px-3" gap={12} align="center">
       <FaLayerGroup size={14} />
@@ -43,11 +44,13 @@ export default function SidebarWorkspace({ currentWorkspaceId, workspaces }: Sid
 
           <Combobox.Dropdown>
             <Combobox.Options>
-              <Combobox.Group label="Current workspace">
-                <Combobox.Option value={currentWorkspaceId}>{getWorkspaceName(selectedWorkspace!)}</Combobox.Option>
+              <Combobox.Group label="Your workspace">
+                <Combobox.Option value={personalWorkspace!.id.toString()}>
+                  {getWorkspaceName(personalWorkspace!)}
+                </Combobox.Option>
               </Combobox.Group>
-              <Combobox.Group label="Switch workspace">
-                {unselectedWorkspaces.map((w) => (
+              <Combobox.Group label="Other workspaces">
+                {customWorkspaces.map((w) => (
                   <Combobox.Option key={w.id} value={w.id.toString()}>
                     {getWorkspaceName(w)}
                   </Combobox.Option>
@@ -58,7 +61,7 @@ export default function SidebarWorkspace({ currentWorkspaceId, workspaces }: Sid
         </Combobox>
       </div>
 
-      <FaSun size={14}/>
+      <FaSun size={14} />
     </Flex>
   )
 }
