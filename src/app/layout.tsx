@@ -1,8 +1,5 @@
 import { Roboto } from 'next/font/google'
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
-
-import ReactQueryProvider from '@/providers/ReactQueryProvider'
-import { mantineTheme } from '@/theme'
+import { ColorSchemeScript } from '@mantine/core'
 
 import './globals.css'
 import '@mantine/core/styles.css'
@@ -12,7 +9,7 @@ const roboto = Roboto({
   subsets: ['vietnamese', 'latin'],
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -24,11 +21,7 @@ export default function RootLayout({
         <title>Demo</title>
       </head>
 
-      <body className={roboto.className}>
-        <ReactQueryProvider>
-          <MantineProvider theme={mantineTheme}>{children}</MantineProvider>
-        </ReactQueryProvider>
-      </body>
+      <body className={roboto.className}>{children}</body>
     </html>
   )
 }

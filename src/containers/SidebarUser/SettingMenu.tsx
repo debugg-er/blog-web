@@ -1,18 +1,19 @@
 'use client'
 
 import { FiArrowLeft, FiLogOut, FiMessageCircle, FiPhoneOutgoing, FiSearch } from 'react-icons/fi'
-import { Avatar, Menu, Text } from '@mantine/core'
+import { Avatar, Menu, MenuProps, Text } from '@mantine/core'
 import { useMutation } from '@tanstack/react-query'
 
 import { logout } from '@/api'
 import { useRouter } from '@/navigation'
 import { User } from '@/types/user'
 
-export type UserAvatarMenuProps = {
+export type SettingMenuProps = {
   user: User
   children: React.ReactNode
-}
-export default function UserAvatarMenu({ user, children }: UserAvatarMenuProps) {
+} & MenuProps
+
+export default function SettingMenu({ user, children, ...rest }: SettingMenuProps) {
   const router = useRouter()
   const { mutateAsync: logoutUser } = useMutation({ mutationFn: logout })
 
@@ -22,7 +23,7 @@ export default function UserAvatarMenu({ user, children }: UserAvatarMenuProps) 
   }
 
   return (
-    <Menu shadow="md" width={240}>
+    <Menu shadow="md" width={240} {...rest}>
       <Menu.Target>{children}</Menu.Target>
 
       <Menu.Dropdown>

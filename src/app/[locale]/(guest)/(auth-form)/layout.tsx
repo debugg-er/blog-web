@@ -1,6 +1,6 @@
-import { Box } from "@mantine/core"
+import { Box } from '@mantine/core'
 
-import { cn } from "@/utils"
+import { cn } from '@/utils'
 
 export default function AuthFormLayout({
   children,

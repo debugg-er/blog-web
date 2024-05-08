@@ -1,30 +1,24 @@
-import { AppShell, AppShellHeader, AppShellMain } from '@mantine/core'
+import { cookies } from 'next/headers'
 
-import MainHeader from '@/containers/main/MainHeader'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { redirect } from '@/navigation'
+import { User } from '@/types/user'
+import { rest } from '@/utils/rest'
 
-import { rest } from '../../rest'
+async function getUser(): Promise<User | null> {
+  const accessToken = cookies().get('access_token')?.value
+  if (!accessToken) return null
 
-export default async function MainLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  const res = await rest('/users/me/profile', { cache: 'no-cache'  })
-  const { data: user  } = await res.json()
+  const res = await rest('/users/me/profile', { cache: 'no-cache' })
+  const { data: user } = await res.json()
+  return user
+}
 
-  return (
-    <AuthProvider user={user}>
-      <AppShell header={{ height: 60 }}>
-        <AppShellHeader>
-          <div className="w-[1200px] mx-auto h-full">
-            <MainHeader />
-          </div>
-        </AppShellHeader>
-        <AppShellMain>
-          <div className="w-[1200px] mx-auto h-full my-6">{children}</div>
-        </AppShellMain>
-      </AppShell>
-    </AuthProvider>
-  )
+export default async function AppLayout({ children }: Record<string, React.ReactNode>) {
+  const user = await getUser()
+  if (!user) {
+    return redirect('/')
+  }
+
+  return <AuthProvider user={user}>{children}</AuthProvider>
 }

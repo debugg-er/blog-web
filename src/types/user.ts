@@ -4,6 +4,7 @@ export type User = {
     firstName: string
     lastName: string
     email?: string | null
+    avatar?: string | null
     ssoMeta?: object
     createdAt?: Date | string
     updatedAt?: Date | string

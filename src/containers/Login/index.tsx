@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+// import { getTranslations } from 'next-intl/server'
 import { Box, Divider, Flex, Text, Title } from '@mantine/core'
 
 import { AnchorText } from '@/components/elements'
@@ -8,7 +8,7 @@ import LoginForm from './LoginForm'
 import SSOButtons from './SSOButtons'
 
 async function Login() {
-  const t = await getTranslations('login')
+  // const t = await getTranslations('login')
 
   return (
     <Flex direction="column" className="m-16 gap-4">
