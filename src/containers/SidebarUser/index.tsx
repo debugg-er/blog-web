@@ -17,10 +17,10 @@ function SidebarUser() {
       <UserAvatar user={user} />
       <Flex className="flex-1" direction="column">
         <Text size="sm">{getFullName(user)}</Text>
-        <Text>{getFullName(user)}</Text>
+        <Text size='xs'>{getFullName(user)}</Text>
       </Flex>
       <SettingMenu user={user} position="right-end">
-        <div>
+        <div className='cursor-pointer'>
           <FiSettings size={22} />
         </div>
       </SettingMenu>
