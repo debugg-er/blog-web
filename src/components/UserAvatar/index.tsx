@@ -1,6 +1,6 @@
-import { Avatar, AvatarProps } from '@mantine/core'
-
 import { User } from '@/types/user'
+import { Avatar } from '../ui/avatar'
+import { AvatarProps } from '@radix-ui/react-avatar'
 
 export type UserAvatarProps = {
     user: Pick<User, 'avatar' | 'firstName' | 'lastName'>
