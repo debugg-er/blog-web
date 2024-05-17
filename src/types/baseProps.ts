@@ -6,10 +6,8 @@ export type BaseProps = {
     size?: Size
 }
 
-type Spread<T extends string> = {
-    [key in T]: string
-}
-
-export type BasePropsCVA = {
-    [key in keyof Required<BaseProps>]: Spread<Required<BaseProps>[key]> // Mapped type to keyof Variant['variant']
+export type CvaParams<T extends Record<string, string>> = {
+    [key in keyof Required<T>]: {
+        [key2 in Required<T>[key]]: string
+    }
 }

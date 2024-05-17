@@ -1,12 +1,13 @@
 import { cva, type VariantProps } from 'class-variance-authority'
+import { LoaderCircle,LucideIcon } from 'lucide-react'
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
-import { BaseProps, BasePropsCVA } from '@/types/baseProps'
+import { BaseProps, CvaParams } from '@/types/baseProps'
 import { cn } from '@/utils/className'
 
-const buttonVariants = cva<BasePropsCVA>(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300',
+const buttonVariants = cva<CvaParams<BaseProps>>(
+  'inline-flex gap-1 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300',
   {
     variants: {
       variant: {
@@ -37,14 +38,51 @@ const buttonVariants = cva<BasePropsCVA>(
 
 export type ButtonProps = {
   asChild?: boolean
+  LeftIcon?: LucideIcon
+  leftSection?: React.ReactNode
+  RightIcon?: LucideIcon
+  rightSection?: React.ReactNode
+  loading?: boolean
 } & BaseProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants>
+  React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      children,
+      LeftIcon,
+      leftSection,
+      RightIcon,
+      rightSection,
+      loading = false,
+      disabled,
+      ...props
+    },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : 'button'
-    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+    const left = loading ? (
+      <LoaderCircle className="animate-spin" size={16} />
+    ) : (
+      leftSection ?? (LeftIcon && <LeftIcon size={16} />)
+    )
+    const right = rightSection ?? (RightIcon && <RightIcon />)
+    return (
+      <Comp
+        ref={ref}
+        className={cn(buttonVariants({ variant, size, className }))}
+        disabled={loading || disabled}
+        {...props}
+      >
+        {left}
+        <span>{children}</span>
+        {right}
+      </Comp>
+    )
   },
 )
 Button.displayName = 'Button'

@@ -1,12 +1,20 @@
-import createMiddleware from "next-intl/middleware";
+import createMiddleware from 'next-intl/middleware'
 
-import { defaultLocale, locales } from "./configs/intl";
+import { defaultLocale, localePrefix, locales } from './configs/intl'
 
 export default createMiddleware({
   defaultLocale,
   locales,
-});
+  localePrefix,
+})
 
 export const config = {
-  matcher: ["/", "/(vi|en)/:path*"],
-};
+  matcher: [
+    // Match all pathnames except for
+    // - … if they start with `/api`, `/_next` or `/_vercel`
+    // - … the ones containing a dot (e.g. `favicon.ico`)
+    '/((?!api|_next|_vercel|.*\\..*).*)',
+    '/',
+    '/(vi|en)/:path*',
+  ],
+}

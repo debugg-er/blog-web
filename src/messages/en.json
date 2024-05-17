@@ -1,15 +1,25 @@
 {
   "login": {
-    "label": {
-      "email": "Email:",
-      "password": "Password:"
+    "placeholder": {
+      "email": "Your email address",
+      "password": "Your password"
     },
     "action": {
-      "login": "Login with your email"
+      "loginWithEmail": "Login with your email",
+      "loginWithGoogle": "Continue with Google",
+      "register": "Register"
     },
-    "title": {
-      "login": "Test",
-      "loginDesc": "Test2"
+    "text": {
+      "loginTitle": "Login to your Account",
+      "loginDesc": "See what going on within your head",
+      "termAndPolicy": "By clicking continue, you agree to our <term>Terms of Service</term> and <policy>Privacy Policy.</policy>"
+    },
+    "validation": {
+      "emptyEmail": "Please enter your email address.",
+      "invalidEmail": "The email address you entered is invalid.",
+      "emptyPassword": "Please enter your password.",
+      "invalidPassword": "Invalid password. Please use at least 6 characters with upper/lower case, numbers & symbols.",
+      "loginFail": "Incorrect email or password"
     }
   }
 }

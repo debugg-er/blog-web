@@ -1,7 +1,6 @@
 import { client } from "./client"
 
-export type LoginUserPassPayload = { email: string; password: string }
-export const loginUserPass = (payload: LoginUserPassPayload) => {
+export const loginUserPass = (payload: { email: string; password: string }) => {
     return client.post('/auth/login', payload)
 }
 
