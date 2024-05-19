@@ -1,12 +1,12 @@
 import Image from 'next/image'
 
+import { getWorkspaces } from '@/api/workspace'
 import { Button } from '@/components/ui/button'
 import { Link, redirect } from '@/navigation'
 import { Workspace, WorkspaceType } from '@/types/workspace'
-import { rest } from '@/utils/rest'
 
 export default async function Home() {
-  const { data: workspaces } = await rest('/users/me/workspaces').then((r) => r.json())
+  const { data: workspaces } = await getWorkspaces()
   if (workspaces) {
     const personalWorkspace: Workspace = workspaces.find((w: Workspace) => w.type === WorkspaceType.Personal)
     redirect(`/w/${personalWorkspace.id}`)

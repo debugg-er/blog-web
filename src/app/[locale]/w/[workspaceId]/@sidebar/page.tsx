@@ -1,12 +1,9 @@
-'use client'
+import { getBooks } from '@/api/book'
+import { getWorkspaces } from '@/api/workspace'
+import Sidebar from '@/containers/SideBar'
 
-import { useMutation } from "@tanstack/react-query"
+export default async function SidebarPage({ params }: { params: { workspaceId: string } }) {
+  const [{ data: workspaces }, { data: books }] = await Promise.all([getWorkspaces(), getBooks(params.workspaceId)])
 
-import { logout } from "@/api"
-import { Button } from "@/components/ui/button"
-
-export default function Sidebar() {
-  const { mutateAsync: logoutUser } = useMutation({ mutationFn: logout })
-
-  return <Button onClick={() => logoutUser()}>logout</Button>
+  return <Sidebar workspaces={workspaces} books={books} workspaceId={params.workspaceId} />
 }

@@ -1,5 +1,6 @@
+import { getWorksapceById } from '@/api/workspace'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { redirect } from '@/navigation'
-import { rest } from '@/utils/rest'
 
 export default async function WorkspaceLayout({
   sidebar,
@@ -10,16 +11,19 @@ export default async function WorkspaceLayout({
   children: React.ReactNode
   params: { workspaceId: string }
 }) {
-  const { data: workspace } = await rest(`/workspaces/${workspaceId}`).then((r) => r.json())
+  const { data: workspace } = await getWorksapceById(workspaceId)
   if (!workspace) {
     redirect(`/`)
     return
   }
 
   return (
-    <div className="ok">
-      {sidebar}
-      {children}
+    <div className="h-full">
+      <ResizablePanelGroup direction='horizontal'>
+        <ResizablePanel defaultSize={15}>{sidebar}</ResizablePanel>
+        <ResizableHandle withHandle/>
+        <ResizablePanel defaultSize={85}>{children}</ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   )
 }

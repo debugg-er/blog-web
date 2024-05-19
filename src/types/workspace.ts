@@ -1,4 +1,3 @@
-
 export enum WorkspaceType {
   Personal = 'Personal',
   Custom = 'Custom',
