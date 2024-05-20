@@ -1,8 +1,8 @@
 import { Calendar, ListTodo, Notebook, Settings, Users } from 'lucide-react'
 
+import { getBooks } from '@/api/book'
+import { getWorkspaces } from '@/api/workspace'
 import { Separator } from '@/components/ui/separator'
-import { Book } from '@/types/book'
-import { Workspace } from '@/types/workspace'
 
 import BookTree from './BookTree'
 import NavItem from './NavBar/NavItem'
@@ -10,12 +10,12 @@ import UserInfo from './UserInfo'
 import WorkspaceSelector from './WorkspaceSelector'
 
 export type SidebarProps = {
-  workspaces: Workspace[]
   workspaceId: string
-  books: Book[]
 }
 
-export default async function Sidebar({ workspaces, workspaceId, books }: SidebarProps) {
+export default async function Sidebar({ workspaceId }: SidebarProps) {
+  const [{ data: workspaces }, { data: books }] = await Promise.all([getWorkspaces(), getBooks(workspaceId)])
+
   return (
     <aside className="flex h-full flex-col">
       <div className="p-2">
