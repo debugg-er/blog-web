@@ -10,5 +10,5 @@ export function getBooks(workspaceId: string, provider: ApiProvider.NextFetch): 
 export function getBooks(workspaceId: string): Promise<any>
 export function getBooks(workspaceId: string, provider = ApiProvider.NextFetch) {
   const url = `/workspaces/${workspaceId}/books`
-  return provider === ApiProvider.NextFetch ? nextFetch(url) : client.get(url)
+  return provider === ApiProvider.NextFetch ? { data: [] } : client.get(url)
 }

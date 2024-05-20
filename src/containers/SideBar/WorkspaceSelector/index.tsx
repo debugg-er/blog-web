@@ -19,7 +19,7 @@ export default function WorkspaceSelector({ workspaces, workspaceId }: Workspace
 
   return (
     <Select value={workspaceId} onValueChange={(id) => router.push(`/w/${id}`)}>
-      <SelectTrigger className="focus:ring-0 focus:ring-offset-0 font-medium">
+      <SelectTrigger className="font-medium focus:ring-0 focus:ring-offset-0">
         <WorkspaceItem workspace={selectedWorkspace} isItem={false} />
       </SelectTrigger>
       <SelectContent>

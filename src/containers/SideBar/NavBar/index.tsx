@@ -12,7 +12,7 @@ type NavProps = {
 
 export default function NavBar({ segments, className, ...rest }: NavProps) {
   return (
-    <aside className={cn('flex flex-col p-2 gap-1', className)} {...rest}>
+    <aside className={cn('flex flex-col gap-1 p-2', className)} {...rest}>
       {segments.map((items, i) => (
         <>
           {i > 0 && <Separator />}

@@ -19,9 +19,9 @@ export default async function WorkspaceLayout({
 
   return (
     <div className="h-full">
-      <ResizablePanelGroup direction='horizontal'>
+      <ResizablePanelGroup direction="horizontal">
         <ResizablePanel defaultSize={15}>{sidebar}</ResizablePanel>
-        <ResizableHandle withHandle/>
+        <ResizableHandle withHandle />
         <ResizablePanel defaultSize={85}>{children}</ResizablePanel>
       </ResizablePanelGroup>
     </div>

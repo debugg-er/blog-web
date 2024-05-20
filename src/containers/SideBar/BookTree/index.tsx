@@ -1,8 +1,8 @@
 'use client'
 
 import { ChevronDown, EllipsisVertical } from 'lucide-react'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible'
 
+import Collapsible, { CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible'
 import { Link, usePathname } from '@/navigation'
 import { Book } from '@/types/book'
 import { cn } from '@/utils'
@@ -20,7 +20,7 @@ export default function BookTree({ books, indent = true, workspaceId }: BookTree
     <div className="w-full">
       {books.map((book) => (
         <div key={book.id} className="flex w-full gap-1">
-          {indent && <div className="border-r border-l-slate-400 min-w-4"></div>}
+          {indent && <div className="min-w-4 border-r border-l-slate-400"></div>}
           <div className="w-full">
             <Collapsible>
               <div className="flex items-center gap-1 p-2">
@@ -32,7 +32,7 @@ export default function BookTree({ books, indent = true, workspaceId }: BookTree
                 <Link
                   href={`/w/${workspaceId}/b/${book.id}`}
                   className={cn(
-                    'flex-1 min-w-0 text-sm select-none cursor-pointer truncate hover:font-medium',
+                    'min-w-0 flex-1 cursor-pointer select-none truncate text-sm hover:font-medium',
                     pathname === `/w/${workspaceId}/b/${book.id}` && 'font-medium',
                   )}
                 >

@@ -3,13 +3,12 @@ import { BrickWall, Hammer, LogOut, Settings, User, Users } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 
 import { logout } from '@/api'
-import {
-  DropdownMenu,
+import DropdownMenu, {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/components/ui/DropdownMenu'
 import { useRouter } from '@/navigation'
 
 export default function SettingMenu() {
@@ -24,7 +23,7 @@ export default function SettingMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">
-        <Settings className="text-gray-700 hover:text-gray-900 hover:rotate-90 transition-all" />
+        <Settings className="text-gray-700 transition-all hover:rotate-90 hover:text-gray-900" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" side="right">
         <DropdownMenuItem Icon={User}>Profile</DropdownMenuItem>
