@@ -11,7 +11,7 @@ import { useMutation } from '@tanstack/react-query'
 import { loginUserPass } from '@/api'
 import Button from '@/components/ui/Button'
 import Form, { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/Form'
-import { Input } from '@/components/ui/input'
+import Input from '@/components/ui/Input'
 import { Separator } from '@/components/ui/separator'
 import { useRouter } from '@/navigation'
 

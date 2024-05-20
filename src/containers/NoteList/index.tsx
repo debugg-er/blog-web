@@ -1,7 +1,8 @@
-import { Input } from '@/components/ui/input'
+import Input from '@/components/ui/Input'
 import { Separator } from '@/components/ui/separator'
 
 import NoteItem from './NoteItem'
+import { Search } from 'lucide-react'
 
 export default function NoteList({ bookId }: { bookId: string }) {
   const notes = [
@@ -51,7 +52,7 @@ Best regards, William`,
   return (
     <div>
       <div className="m-2">
-        <Input placeholder="Search anything..." />
+        <Input className='!ring-0' LeftIcon={Search} placeholder="Search anything..." />
       </div>
       <Separator />
       <div className="flex flex-col gap-2 p-2">
