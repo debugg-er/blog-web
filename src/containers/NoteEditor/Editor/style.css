@@ -1,0 +1,38 @@
+.mdxeditor-toolbar {
+  border-radius: 0px !important;
+}
+
+.editor h2 {
+  margin: 32px 0 16px 0;
+}
+.editor h3 {
+  margin: 24px 0 12px 0;
+}
+
+.editor p {
+  @apply mt-6
+}
+
+.editor ul {
+  @apply list-disc mt-4 ps-10
+}
+.editor ul > li {
+  @apply mb-2
+}
+
+.editor ul > li[role="checkbox"]::before {
+  @apply top-1/2 -translate-y-1/2
+}
+.editor ul > li[role="checkbox"]::after {
+  left: 5px;
+  top: 50%;
+  transform: rotate(45deg) translate(calc(50% - 4px), -50%);
+}
+
+.editor a {
+  @apply text-blue-500 cursor-pointer hover:underline underline-offset-4;
+}
+
+.editor blockquote {
+  @apply bg-gray-200 px-4 py-2 border-l-4 border-blue-500 opacity-75 mt-4
+}

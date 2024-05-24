@@ -13,3 +13,11 @@ export function getNotesByBookId(bookId: string, provider = ApiProvider.NextFetc
   const url = `/books/${bookId}/notes`
   return provider === ApiProvider.NextFetch ? nextFetch(url) : client.get(url)
 }
+
+export function getNote(noteId: string, provider: ApiProvider.Axios): Promise<AxiosResponse<any, any>>
+export function getNote(noteId: string, provider: ApiProvider.NextFetch): Promise<any>
+export function getNote(noteId: string): Promise<any>
+export function getNote(noteId: string, provider = ApiProvider.NextFetch) {
+  const url = `/notes/${noteId}`
+  return provider === ApiProvider.NextFetch ? nextFetch(url) : client.get(url)
+}

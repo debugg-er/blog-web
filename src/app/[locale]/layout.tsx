@@ -9,6 +9,7 @@ import ReactQueryProvider from '@/providers/ReactQueryProvider'
 import { cn } from '@/utils'
 
 import '../globals.css'
+import '@mdxeditor/editor/style.css'
 
 export const metadata: Metadata = {
   title: '📭 ⭐️ 🤒 ⛽️ 🌲 🚁 😩 💻',
@@ -25,7 +26,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={cn(GeistSans.className, 'h-screen')}>
+      <body className={cn(GeistSans.className, 'h-screen overflow-hidden')}>
         <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
             <AuthProvider user={user!}>{children}</AuthProvider>
