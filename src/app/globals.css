@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+  html {
+    @apply text-stone-800 dark:text-stone-100
+  }
+
   h1 {
     @apply text-3xl font-semibold tracking-tight;
   }
@@ -17,5 +22,21 @@
   }
   h5 {
     @apply text-base font-medium tracking-tight;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[6px] h-[6px]
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-50
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500
   }
 }

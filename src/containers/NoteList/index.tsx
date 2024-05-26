@@ -12,12 +12,12 @@ export default async function NoteList({ bookId }: { bookId: string }) {
   const notes: Note[] = response.data
 
   return (
-    <div>
+    <div className="flex h-full flex-col bg-stone-50">
       <div className="m-2">
         <Input className="!ring-0" LeftIcon={Search} placeholder="Search anything..." />
       </div>
       <Separator />
-      <div className="flex flex-col gap-2 p-2">
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-auto p-2">
         {notes.map((note) => (
           <NoteItem key={note.id} note={note} />
         ))}

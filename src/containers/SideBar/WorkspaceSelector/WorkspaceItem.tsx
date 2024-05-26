@@ -13,7 +13,7 @@ export default function WorkspaceItem({ workspace, isItem = true }: { workspace:
   )
   return isItem ? (
     <SelectItem
-      className="my-1 rounded has-[.selected]:bg-slate-800 has-[.selected]:text-white"
+      className="my-1 rounded has-[.selected]:bg-stone-800 has-[.selected]:text-white"
       value={workspace.id.toString()}
     >
       {content}

@@ -21,5 +21,10 @@
       "invalidPassword": "Invalid password. Please use at least 6 characters with upper/lower case, numbers & symbols.",
       "loginFail": "Incorrect email or password"
     }
+  },
+  "components": {
+    "taskProgress": {
+      "totalTasks": "{doneTasks}/{totalTasks} Tasks"
+    }
   }
 }

@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 
 import { getProfile } from '@/api/user'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { AuthProvider } from '@/contexts/AuthContext'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
 import { cn } from '@/utils'
@@ -28,9 +29,11 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={cn(GeistSans.className, 'h-screen overflow-hidden')}>
         <NextIntlClientProvider messages={messages}>
-          <ReactQueryProvider>
-            <AuthProvider user={user!}>{children}</AuthProvider>
-          </ReactQueryProvider>
+          <TooltipProvider delayDuration={300}>
+            <ReactQueryProvider>
+              <AuthProvider user={user!}>{children}</AuthProvider>
+            </ReactQueryProvider>
+          </TooltipProvider>
         </NextIntlClientProvider>
       </body>
     </html>

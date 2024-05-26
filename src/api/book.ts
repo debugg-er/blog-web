@@ -5,7 +5,10 @@ import { ApiProvider } from '@/types/apiProvider'
 import { client } from './client'
 import { nextFetch } from './rest'
 
-export function getBooksByWorkspaceId(workspaceId: string, provider: ApiProvider.Axios): Promise<AxiosResponse<any, any>>
+export function getBooksByWorkspaceId(
+  workspaceId: string,
+  provider: ApiProvider.Axios,
+): Promise<AxiosResponse<any, any>>
 export function getBooksByWorkspaceId(workspaceId: string, provider: ApiProvider.NextFetch): Promise<any>
 export function getBooksByWorkspaceId(workspaceId: string): Promise<any>
 export function getBooksByWorkspaceId(workspaceId: string, provider = ApiProvider.NextFetch) {

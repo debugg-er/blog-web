@@ -3,15 +3,14 @@ import NoteList from '@/containers/NoteList'
 
 export default function Layout({ children, params }: { children: React.ReactNode; params: { bookId: string } }) {
   return (
-    <main className='h-full'>
+    <main className="h-full">
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel defaultSize={25}>
           <NoteList bookId={params.bookId} />
         </ResizablePanel>
-        <ResizableHandle withHandle />
+        <ResizableHandle />
         <ResizablePanel defaultSize={75}>{children}</ResizablePanel>
       </ResizablePanelGroup>
     </main>
   )
 }
-

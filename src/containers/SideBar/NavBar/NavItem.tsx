@@ -18,7 +18,7 @@ export default function NavItem({
   return (
     <Link
       href={href}
-      className={cn('flex items-center gap-2 rounded p-2 hover:bg-slate-100', className)}
+      className={cn('flex items-center gap-2 rounded p-2 hover:bg-stone-100', className)}
       style={{ marginLeft: level * 16 }}
       {...rest}
     >

@@ -1,6 +1,9 @@
 'use client'
+
 import type { ForwardedRef } from 'react'
 import {
+  codeBlockPlugin,
+  codeMirrorPlugin,
   frontmatterPlugin,
   headingsPlugin,
   imagePlugin,
@@ -34,7 +37,10 @@ export default function Editor({
         quotePlugin(),
         thematicBreakPlugin(),
         markdownShortcutPlugin(),
-        quotePlugin(),
+        codeBlockPlugin({
+          defaultCodeBlockLanguage: 'js',
+        }),
+        codeMirrorPlugin({ codeBlockLanguages: { js: 'JavaScript', css: 'CSS' } }),
         linkDialogPlugin(),
         imagePlugin({
           imageAutocompleteSuggestions: ['https://via.placeholder.com/150', 'https://via.placeholder.com/150'],
@@ -45,8 +51,8 @@ export default function Editor({
           toolbarContents: () => <KitchenSinkToolbar />,
         }),
       ]}
-      contentEditableClassName='editor'
-      onChange={markdown => console.log(markdown.match(/\[(x|\s)\]/g))}
+      contentEditableClassName="editor"
+      onChange={(markdown) => console.log(markdown.match(/\[(x|\s)\]/g))}
       {...props}
       ref={editorRef}
     />
