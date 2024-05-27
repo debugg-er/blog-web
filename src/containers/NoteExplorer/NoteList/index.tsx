@@ -11,8 +11,6 @@ export default async function NoteList({ bookId }: any) {
   const [response, t] = await Promise.all([getNotesByBookId(bookId), getTranslations('noteList')])
   const notes: Note[] = response.data
 
-  await new Promise(res => setTimeout(res, 2000))
-
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-auto p-2">
       {notes.length === 0 ? (

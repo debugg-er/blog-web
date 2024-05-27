@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import { getNote } from '@/api/note'
 import { Note } from '@/types/note'
 
+import EditorLoading from './Editor/EditorLoading'
 import Header from './Header'
 import HeaderLoading from './Header/HeaderLoading'
 import Temp from './Temp'
@@ -14,7 +15,9 @@ export default async function NoteEditor({ noteId }: { noteId: string }) {
       <Suspense fallback={<HeaderLoading />}>
         <Header className="p-2 pt-1" notePromise={notePromise} />
       </Suspense>
-      <Temp notePromise={notePromise} />
+      <Suspense fallback={<EditorLoading />}>
+        <Temp notePromise={notePromise} />
+      </Suspense>
     </div>
   )
 }
