@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { cva } from 'class-variance-authority'
 import { LoaderCircle, LucideIcon } from 'lucide-react'
@@ -14,7 +14,7 @@ export const buttonVariants = cva<CvaParams<BaseProps>>(
     variants: {
       variant: {
         default:
-          'bg-stone-900 text-stone-50 hover:bg-stone-900/90 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90',
+          'bg-stone-700 text-stone-50 hover:bg-stone-700/90 dark:bg-stone-50 dark:text-stone-700 dark:hover:bg-stone-50/90',
         destructive:
           'bg-red-500 text-stone-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-stone-50 dark:hover:bg-red-900/90',
         outline:

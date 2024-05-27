@@ -1,25 +1,20 @@
-'use client'
+import { Suspense } from 'react'
 
-import dynamic from 'next/dynamic'
-import { forwardRef } from 'react'
-import { MDXEditorMethods, MDXEditorProps } from '@mdxeditor/editor'
-
-import TaskProgress from '@/components/elements/TaskProgress'
+import { getNote } from '@/api/note'
 import { Note } from '@/types/note'
 
-const Editor = dynamic(() => import('./Editor'), { ssr: false })
+import Header from './Header'
+import HeaderLoading from './Header/HeaderLoading'
+import Temp from './Temp'
 
-const ForwardRefEditor = forwardRef<MDXEditorMethods, MDXEditorProps>((props, ref) => (
-  <Editor {...props} editorRef={ref} />
-))
-ForwardRefEditor.displayName = 'ForwardRefEditor'
-
-export default function NoteEditor({ note }: { note: Note }) {
+export default async function NoteEditor({ noteId }: { noteId: string }) {
+  const notePromise = getNote(noteId).then((response) => response.data as Note)
   return (
     <div className="flex h-full flex-col">
-      <h3 className="p-2">{note.title}</h3>
-      <TaskProgress className="p-2 pt-0" classNames={{ progress: 'w-[100px]' }} totalTasks={5} doneTasks={3} />
-      <ForwardRefEditor className="flex-1 overflow-auto" markdown={note.content} />
+      <Suspense fallback={<HeaderLoading />}>
+        <Header className="p-2 pt-1" notePromise={notePromise} />
+      </Suspense>
+      <Temp notePromise={notePromise} />
     </div>
   )
 }

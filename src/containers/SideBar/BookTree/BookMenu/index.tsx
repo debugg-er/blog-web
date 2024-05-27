@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronsUpDown, FolderPen, Trash } from 'lucide-react'
+import { ChevronsUpDown, FilePlus2, FolderPen, NotepadText, Trash } from 'lucide-react'
 
 import DropdownMenu, {
   DropdownMenuContent,
@@ -21,11 +21,13 @@ export default function BookMenu({ children, book, onExpandAll }: BookMenuProps)
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">{children}</DropdownMenuTrigger>
       <DropdownMenuContent align="start" side="right">
+        <DropdownMenuItem Icon={FilePlus2}>Create Note</DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem Icon={FolderPen}>Rename</DropdownMenuItem>
         <DropdownMenuItem Icon={ChevronsUpDown} onClick={onExpandAll}>
           Expand All
         </DropdownMenuItem>
-        <DropdownMenuItem Icon={Trash}>Delele Notebook</DropdownMenuItem>
+        <DropdownMenuItem Icon={Trash}>Delete Notebook</DropdownMenuItem>
         <DropdownMenuSeparator />
       </DropdownMenuContent>
     </DropdownMenu>

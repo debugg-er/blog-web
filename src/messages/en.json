@@ -22,9 +22,18 @@
       "loginFail": "Incorrect email or password"
     }
   },
+  "noteList": {
+    "text": {
+      "createListHint": "You didn't have any note yet, let's create one"
+    },
+    "action": {
+      "createNote": "Create Note"
+    }
+  },
   "components": {
     "taskProgress": {
-      "totalTasks": "{doneTasks}/{totalTasks} Tasks"
+      "totalTasks": "{doneTasks}/{totalTasks} Tasks",
+      "done": "Done"
     }
   }
 }

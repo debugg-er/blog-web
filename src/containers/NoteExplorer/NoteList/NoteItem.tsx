@@ -9,7 +9,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { Link, usePathname } from '@/navigation'
 import { Note } from '@/types/note'
 import { cn } from '@/utils'
-import { randInt } from '@/utils/number'
 
 export default function NoteItem({ note }: { note: Note }) {
   const params = useParams<{ bookId: string; workspaceId: string }>()
@@ -18,8 +17,8 @@ export default function NoteItem({ note }: { note: Note }) {
 
   const href = `/w/${params.workspaceId}/b/${params.bookId}/${note.id}`
   const active = pathname === href
-  const total = randInt(1, 10)
-  const done = randInt(1, total)
+  const total = 5
+  const done = 3
   // title={formatter.dateTime(moment(note.updatedAt).toDate(), { timeStyle: 'medium', dateStyle: 'medium' })}
   return (
     <Link href={href}>
@@ -57,7 +56,7 @@ export default function NoteItem({ note }: { note: Note }) {
           }}
         />
 
-        <span className={cn('line-clamp-2 text-xs leading-5 text-gray-600', active && 'text-stone-300')}>
+        <span className={cn('line-clamp-2 text-xs leading-5 text-stone-600', active && 'text-stone-300')}>
           {note.content}
         </span>
       </article>

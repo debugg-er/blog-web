@@ -27,6 +27,7 @@ export default function TaskProgress({
   const t = useTranslations('components.taskProgress')
 
   const progress = (doneTasks * 100) / totalTasks
+  const isDone = totalTasks === doneTasks
 
   return (
     <div className={cn('flex items-center gap-2', isDark && 'text-stone-50', className)} {...rest}>
@@ -39,7 +40,7 @@ export default function TaskProgress({
         }}
       />
       <CircleCheckBig size={12} className="text-green-500" strokeWidth="3px" />
-      <span className="text-nowrap text-xs">{t('totalTasks', { doneTasks, totalTasks })}</span>
+      <span className="text-nowrap text-xs">{isDone ? t('done') : t('totalTasks', { doneTasks, totalTasks })}</span>
     </div>
   )
 }

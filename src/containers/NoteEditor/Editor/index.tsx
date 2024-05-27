@@ -21,7 +21,7 @@ import {
   toolbarPlugin,
 } from '@mdxeditor/editor'
 
-import './style.css'
+import style from './style.module.css'
 
 export default function Editor({
   editorRef,
@@ -51,7 +51,7 @@ export default function Editor({
           toolbarContents: () => <KitchenSinkToolbar />,
         }),
       ]}
-      contentEditableClassName="editor"
+      contentEditableClassName={style.editor}
       onChange={(markdown) => console.log(markdown.match(/\[(x|\s)\]/g))}
       {...props}
       ref={editorRef}
