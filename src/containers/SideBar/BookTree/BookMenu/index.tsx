@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronsUpDown, FilePlus2, FolderPen, NotepadText, Trash } from 'lucide-react'
+import { ChevronsUpDown, FilePlus2, FolderPen, Trash } from 'lucide-react'
 
 import DropdownMenu, {
   DropdownMenuContent,
