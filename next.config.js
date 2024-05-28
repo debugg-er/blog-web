@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
   sassOptions: {
     includePaths: [path.join(__dirname, 'src')],
   },

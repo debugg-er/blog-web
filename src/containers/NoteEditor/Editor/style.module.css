@@ -27,6 +27,7 @@
   & ul {
     @apply mt-4 list-disc ps-10;
   }
+
   & ul > li {
     @apply mb-2;
   }
@@ -34,6 +35,7 @@
   & ul > li[role='checkbox']::before {
     @apply top-1/2 -translate-y-1/2;
   }
+
   & ul > li[role='checkbox']::after {
     left: 5px;
     top: 50%;
