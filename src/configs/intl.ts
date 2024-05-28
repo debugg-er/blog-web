@@ -5,10 +5,10 @@ export const locales = ['en', 'vi'] as const
 export const localePrefix = 'always'
 
 export const formats: Partial<Formats> = {
-    dateTime: {
-        medium: {
-            timeStyle: 'medium',
-            dateStyle: 'medium',
-        },
+  dateTime: {
+    medium: {
+      timeStyle: 'medium',
+      dateStyle: 'medium',
     },
+  },
 }
