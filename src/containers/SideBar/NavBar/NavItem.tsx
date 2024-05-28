@@ -1,7 +1,7 @@
 import { AnchorHTMLAttributes } from 'react'
 
 import { Link } from '@/navigation'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 import NavItemTitle from './NavItemTitle'
 import { NavItemConf } from './type'

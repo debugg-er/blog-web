@@ -4,7 +4,7 @@ import { LucideIcon } from 'lucide-react'
 import React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 export type DropdownMenuSubTriggerProps = {
   inset?: boolean

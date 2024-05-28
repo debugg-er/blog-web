@@ -3,7 +3,7 @@
 import React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 function DropdownMenuContent(
   { className, sideOffset = 4, ...props }: DropdownMenuPrimitive.DropdownMenuContentProps,

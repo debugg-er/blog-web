@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Collapsible, { CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible'
 import { usePathname, useRouter } from '@/navigation'
 import { Book } from '@/types/book'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 import { isSubpath } from '@/utils/url'
 
 import BookMenu from './BookMenu'

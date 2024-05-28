@@ -8,7 +8,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 
-import { loginUserPass } from '@/api'
+import { loginUserPass } from '@/api/auth'
 import Button from '@/components/ui/Button'
 import Form, { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/Form'
 import Input from '@/components/ui/Input'

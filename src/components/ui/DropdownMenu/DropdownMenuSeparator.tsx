@@ -3,7 +3,7 @@
 import React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 function DropdownMenuSeparator(
   { className, children, ...props }: DropdownMenuPrimitive.MenuSeparatorProps,

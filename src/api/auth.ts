@@ -1,9 +1,10 @@
-import { client } from './client'
+import { rest } from './rest'
 
 export const loginUserPass = (payload: { email: string; password: string }) => {
-  return client.post('/auth/login', payload)
+  return rest('/auth/login', {
+    method: 'POST',
+    body: payload,
+  })
 }
 
-export const logout = () => {
-  return client.post('/auth/logout')
-}
+export const logout = () => rest('/auth/logout', { method: 'POST' })

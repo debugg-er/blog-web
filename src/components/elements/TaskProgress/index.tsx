@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { HTMLAttributes } from 'react'
 
 import { Progress } from '@/components/ui/progress'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 export type TaskProgressProps = {
   isDark?: boolean

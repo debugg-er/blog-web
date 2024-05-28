@@ -8,7 +8,7 @@ import TaskProgress from '@/components/elements/TaskProgress'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Link, usePathname } from '@/navigation'
 import { Note } from '@/types/note'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 export default function NoteItem({ note }: { note: Note }) {
   const params = useParams<{ bookId: string; workspaceId: string }>()

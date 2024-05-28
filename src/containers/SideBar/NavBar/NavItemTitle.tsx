@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from '@/navigation'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 export default function NavItemTitle({ title, href }: { title: string; href: string }) {
   const pathname = usePathname()

@@ -4,7 +4,7 @@ import { Check } from 'lucide-react'
 import React from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 function DropdownMenuCheckboxItem(
   { className, children, checked, ...props }: DropdownMenuPrimitive.DropdownMenuCheckboxItemProps,

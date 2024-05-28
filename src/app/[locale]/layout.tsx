@@ -8,7 +8,7 @@ import { Font } from '@/configs/font'
 import { formats } from '@/configs/intl'
 import { AuthProvider } from '@/contexts/AuthContext'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 import '../globals.css'
 import '@mdxeditor/editor/style.css'

@@ -2,7 +2,7 @@
 import { BrickWall, Hammer, LogOut, Settings, User, Users } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 
-import { logout } from '@/api'
+import { logout } from '@/api/auth'
 import DropdownMenu, {
   DropdownMenuContent,
   DropdownMenuItem,

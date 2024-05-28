@@ -4,7 +4,7 @@ import { MDXEditorMethods, MDXEditorProps } from '@mdxeditor/editor'
 
 import { Font } from '@/configs/font'
 import { Note } from '@/types/note'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 const Editor = dynamic(() => import('./Editor'), { ssr: false })
 

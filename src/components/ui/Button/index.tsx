@@ -6,7 +6,7 @@ import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 
 import { BaseProps, CvaParams } from '@/types/baseProps'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 export const buttonVariants = cva<CvaParams<BaseProps>>(
   'inline-flex gap-1 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-stone-950 dark:focus-visible:ring-stone-300',

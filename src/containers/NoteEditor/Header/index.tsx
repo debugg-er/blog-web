@@ -4,7 +4,7 @@ import { HTMLAttributes } from 'react'
 
 import TaskProgress from '@/components/elements/TaskProgress'
 import { Note } from '@/types/note'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 import HeaderMenu from './HeaderMenu'
 

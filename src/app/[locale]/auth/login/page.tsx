@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server'
 
 import Button from '@/components/ui/Button'
 import { Link } from '@/navigation'
-import { cn } from '@/utils'
+import { cn } from '@/utils/className'
 
 import { UserAuthForm } from './AuthForm'
 
