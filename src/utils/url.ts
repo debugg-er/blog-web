@@ -1,3 +1,1 @@
-export function isSubpath(pathname: string, subpath: string) {
-  return pathname.match(new RegExp(subpath + '(\\/|$)'))
-}
+export const isSubpath = (pathname: string, subpath: string) => pathname.match(new RegExp(subpath + '(\\/|$)'))
