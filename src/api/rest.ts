@@ -26,6 +26,7 @@ export const rest = async (input: string, { body, params, ...init }: NextFetchOp
   }
 
   const response = await fetch(url, {
+    credentials: 'include',
     headers,
     body: body ? JSON.stringify(body) : undefined,
     ...init,
