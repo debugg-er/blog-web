@@ -30,11 +30,11 @@ export default function TaskProgress({
   const isDone = totalTasks === doneTasks
 
   return (
-    <div className={cn('flex items-center gap-2', isDark && 'text-stone-50', className)} {...rest}>
+    <div className={cn('flex items-center gap-2', isDark && 'text-primary-50', className)} {...rest}>
       <ListChecks size={12} strokeWidth={3} />
       <Progress
         value={progress}
-        className={cn('h-1 bg-stone-400', classNames?.progress)}
+        className={cn('h-1 bg-primary-400', classNames?.progress)}
         classNames={{
           indicator: progress < 30 ? 'bg-red-500' : progress < 70 ? 'bg-yellow-500' : 'bg-green-500',
         }}

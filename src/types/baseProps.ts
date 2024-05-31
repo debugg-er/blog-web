@@ -1,5 +1,5 @@
-export type Variant = 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-export type Size = 'default' | 'sm' | 'lg' | 'icon'
+export type Variant = 'primary' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
+export type Size = 'md' | 'sm' | 'lg'
 
 export type BaseProps = {
   variant?: Variant

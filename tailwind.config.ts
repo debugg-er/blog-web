@@ -17,10 +17,12 @@ const config = {
       transparent: 'transparent',
       white: '#ffffff',
       black: '#000000',
-      primary: colors.neutral,
+      primary: colors.stone,
+      neutral: colors.neutral,
       green: colors.green,
       yellow: colors.yellow,
       red: colors.red,
+      blue: colors.blue,
     },
     extend: {
       keyframes: {

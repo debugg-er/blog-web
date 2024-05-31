@@ -26,7 +26,7 @@ export default function Toolbar() {
         {icons.map((icon, i) => (
           <Tooltip key={i}>
             <TooltipTrigger>
-              <icon.Icon size={28} className="cursor-pointer rounded-lg p-1 hover:bg-stone-100" />
+              <icon.Icon size={28} className="cursor-pointer rounded-lg p-1 hover:bg-primary-100" />
             </TooltipTrigger>
             <TooltipContent>{icon.title}</TooltipContent>
           </Tooltip>

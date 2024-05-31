@@ -21,7 +21,7 @@ export default async function Header({ notePromise, className, ...rest }: Header
       <div className="flex-1">
         <h4>{note.title}</h4>
         <div className="flex items-center gap-3">
-          <span className="rounded bg-stone-200 px-1 text-xs">
+          <span className="rounded bg-primary-200 px-1 text-xs">
             {formatter.dateTime(new Date(note.createdAt), 'medium')}
           </span>
           <TaskProgress classNames={{ progress: 'w-[100px]' }} totalTasks={5} doneTasks={3} />
@@ -29,7 +29,7 @@ export default async function Header({ notePromise, className, ...rest }: Header
       </div>
       <div className="pr-2">
         <HeaderMenu>
-          <EllipsisVertical className="cursor-pointer text-stone-600 hover:text-stone-800" />
+          <EllipsisVertical className="cursor-pointer text-primary-600 hover:text-primary-800" />
         </HeaderMenu>
       </div>
     </div>

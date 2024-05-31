@@ -24,18 +24,18 @@ export default function NoteItem({ note }: { note: Note }) {
     <Link href={href}>
       <article
         className={cn(
-          'cursor-pointer rounded-lg border border-gray-200 bg-white p-3 transition-all hover:bg-stone-100',
+          'cursor-pointer rounded-lg border border-neutral-200 bg-white p-3 transition-all hover:bg-primary-100',
           active && '!bg-neutral-700',
         )}
       >
         <div className="flex">
-          <h5 className={cn('groupmb-1 flex-1 truncate text-sm', active && 'text-stone-50')}>{note.title}</h5>
+          <h5 className={cn('groupmb-1 flex-1 truncate text-sm', active && 'text-primary-50')}>{note.title}</h5>
           <Tooltip>
             <TooltipTrigger className="group flex">
               <span
                 className={cn(
-                  'text-xs text-stone-500 group-hover:text-stone-600',
-                  active && 'text-stone-300 group-hover:text-stone-200',
+                  'text-xs text-primary-500 group-hover:text-primary-600',
+                  active && 'text-primary-300 group-hover:text-primary-200',
                 )}
               >
                 {moment(note.updatedAt).fromNow()}
@@ -56,7 +56,7 @@ export default function NoteItem({ note }: { note: Note }) {
           }}
         />
 
-        <span className={cn('line-clamp-2 text-xs leading-5 text-stone-600', active && 'text-stone-300')}>
+        <span className={cn('line-clamp-2 text-xs leading-5 text-primary-600', active && 'text-primary-300')}>
           {note.content}
         </span>
       </article>

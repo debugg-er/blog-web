@@ -12,8 +12,8 @@ export default function UserInfo() {
     <div className="flex items-center gap-2">
       <UserAvatar user={user} />
       <div className="min-w-0 flex-1">
-        <h5 className="truncate text-sm text-stone-800">{getFullName(user)}</h5>
-        <div className="truncate break-all text-xs text-stone-700">{user.email}</div>
+        <h5 className="truncate text-sm text-primary-800">{getFullName(user)}</h5>
+        <div className="truncate break-all text-xs text-primary-700">{user.email}</div>
       </div>
       <SettingMenu />
     </div>

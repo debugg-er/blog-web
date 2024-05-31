@@ -15,7 +15,7 @@ export default async function Login() {
         <Button variant="ghost">{t('action.register')}</Button>
       </Link>
 
-      <div className="bg-muted relative hidden h-full flex-col bg-zinc-900 p-10 text-white dark:border-r lg:flex">
+      <div className="bg-muted bg-zinc-900 relative hidden h-full flex-col p-10 text-white dark:border-r lg:flex">
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
@@ -31,10 +31,10 @@ export default async function Login() {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h2>{t('text.loginTitle')}</h2>
-            <p className="text-sm text-gray-600">{t('text.loginDesc')}</p>
+            <p className="text-sm text-neutral-600">{t('text.loginDesc')}</p>
           </div>
           <UserAuthForm />
-          <p className="px-8 text-center text-sm text-gray-500">
+          <p className="px-8 text-center text-sm text-neutral-500">
             {t.rich('text.termAndPolicy', {
               term: (term) => <span className="underline underline-offset-4">{term}</span>,
               policy: (policy) => <span className="underline underline-offset-4">{policy}</span>,

@@ -23,7 +23,7 @@ export default function SettingMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">
-        <Settings className="text-gray-700 transition-all hover:rotate-90 hover:text-gray-900" />
+        <Settings className="text-neutral-700 transition-all hover:rotate-90 hover:text-neutral-900" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" side="right">
         <DropdownMenuItem Icon={User}>Profile</DropdownMenuItem>

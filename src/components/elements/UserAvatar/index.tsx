@@ -11,7 +11,7 @@ export default function UserAvatar({ user }: UserAvatarProps) {
   return (
     <Avatar>
       <AvatarImage src={user.avatar} alt="user.avatar" />
-      <AvatarFallback className="bg-gray-300">{user.lastName.slice(0, 1)}</AvatarFallback>
+      <AvatarFallback className="bg-neutral-300">{user.lastName.slice(0, 1)}</AvatarFallback>
     </Avatar>
   )
 }

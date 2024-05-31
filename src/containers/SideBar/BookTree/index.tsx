@@ -42,19 +42,19 @@ function BookItem({ book, indent, workspaceId }: BookItemProps) {
 
   return (
     <div key={book.id} className="flex w-full gap-1">
-      {indent && <div className="min-w-4 border-r border-l-stone-400"></div>}
+      {indent && <div className="min-w-4 border-r border-l-primary-400"></div>}
       <div className="w-full min-w-0">
         <Collapsible open={expand} onOpenChange={setExpand}>
           <div
             className={cn(
-              'flex cursor-pointer items-center gap-1 rounded-lg px-2 py-1 hover:bg-stone-100',
-              isActive && '!bg-neutral-700 !text-gray-50',
+              'flex cursor-pointer items-center gap-1 rounded-lg px-2 py-1 hover:bg-primary-100',
+              isActive && '!bg-primary-700 !text-primary-50',
             )}
             onClick={() => router.push(href)}
           >
             {book.books && (
               <CollapsibleTrigger onClick={(e) => e.stopPropagation()}>
-                <div className="rounded bg-stone-300 bg-opacity-0 transition-all hover:bg-opacity-30">
+                <div className="rounded bg-primary-300 bg-opacity-0 transition-all hover:bg-opacity-30">
                   <ChevronRight className={cn('transition-[transform]', expand && 'rotate-90')} size={16} />
                 </div>
               </CollapsibleTrigger>
@@ -64,7 +64,7 @@ function BookItem({ book, indent, workspaceId }: BookItemProps) {
             </span>
             <BookMenu book={book} onExpandAll={() => {}}>
               <EllipsisVertical
-                className="cursor-pointer rounded bg-stone-300 bg-opacity-0 p-[2px] transition-all hover:bg-opacity-30"
+                className="cursor-pointer rounded bg-primary-300 bg-opacity-0 p-[2px] transition-all hover:bg-opacity-30"
                 size={16}
                 strokeWidth={3}
               />
