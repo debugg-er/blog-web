@@ -5,6 +5,7 @@ import { getWorkspaces } from '@/api/workspace'
 import { Separator } from '@/components/ui/separator'
 
 import BookTree from './BookTree'
+import { CreateBookButton } from './CreateBookButton'
 import NavItem from './NavBar/NavItem'
 import Toolbar from './Toolbar'
 import UserInfo from './UserInfo'
@@ -36,6 +37,7 @@ export default async function Sidebar({ workspaceId }: SidebarProps) {
         <NavItem title="Notebook" Icon={Notebook} href={`/w/${workspaceId}`} />
         <div className="overflow-auto pr-1">
           <BookTree books={books} workspaceId={workspaceId} indent={false} />
+          <CreateBookButton />
         </div>
 
         <Separator />

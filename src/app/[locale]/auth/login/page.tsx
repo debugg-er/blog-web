@@ -15,7 +15,7 @@ export default async function Login() {
         <Button variant="ghost">{t('action.register')}</Button>
       </Link>
 
-      <div className="bg-muted bg-zinc-900 relative hidden h-full flex-col p-10 text-white dark:border-r lg:flex">
+      <div className="relative hidden h-full flex-col bg-primary-900 p-10 text-white dark:border-r lg:flex">
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">

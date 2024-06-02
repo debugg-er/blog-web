@@ -4,6 +4,7 @@ import { ChevronRight, EllipsisVertical } from 'lucide-react'
 import { useState } from 'react'
 
 import Collapsible, { CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible'
+import { useDisclosure } from '@/hooks/useDisclosure'
 import { usePathname, useRouter } from '@/navigation'
 import { Book } from '@/types/book'
 import { cn } from '@/utils/className'
@@ -34,6 +35,7 @@ export type BookItemProps = {
 }
 function BookItem({ book, indent, workspaceId }: BookItemProps) {
   const [expand, setExpand] = useState(false)
+  const [openedMenu, { close: closeOpenMenu, open: openMenu }] = useDisclosure(false)
   const router = useRouter()
   const pathname = usePathname()
 
@@ -62,8 +64,9 @@ function BookItem({ book, indent, workspaceId }: BookItemProps) {
             <span className="min-w-0 flex-1 select-none truncate py-1 text-sm" title={book.title}>
               {book.title}
             </span>
-            <BookMenu book={book} onExpandAll={() => {}}>
+            <BookMenu book={book} open={openedMenu} onClose={closeOpenMenu} onExpandAll={() => {}}>
               <EllipsisVertical
+                onClick={openMenu}
                 className="cursor-pointer rounded bg-primary-300 bg-opacity-0 p-[2px] transition-all hover:bg-opacity-30"
                 size={16}
                 strokeWidth={3}
