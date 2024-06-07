@@ -7,46 +7,41 @@ import DropdownMenu, {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu'
-import { CreateBookPopover } from '@/containers/CreateBookPopover'
+import CreateBookModal from '@/containers/CreateBookModal'
 import { Book } from '@/types/book'
 
 export type BookMenuProps = {
   children: React.ReactNode
   book: Book
   onExpandAll: () => void
-  open: boolean
-  onClose: () => void
 }
 
-export default function BookMenu({ children, open, onClose, book, onExpandAll }: BookMenuProps) {
-  const [openCreateBook, setOpenCreateBook] = useState(false)
-
-  const handleCreateBookPopoverChange = (open: boolean) => {
-    console.log(' 🚀 [1]: index.tsx:24: open=', open)
-    setOpenCreateBook(open)
-    if (!open) onClose?.()
-  }
+export default function BookMenu({ children, book, onExpandAll }: BookMenuProps) {
+  const [visibleCreateBook, setVisibleCreateBook] = useState(false)
 
   return (
-    <DropdownMenu open={open}>
-      <DropdownMenuTrigger onClick={(e) => e.stopPropagation()} className="outline-none">
-        {children}
-      </DropdownMenuTrigger>
-      <DropdownMenuContent onClick={(e) => e.stopPropagation()} align="start" side="right">
-        <DropdownMenuItem Icon={FilePlus2}>Create Note</DropdownMenuItem>
-        <DropdownMenuItem Icon={BookPlus}>
-          <CreateBookPopover open={openCreateBook} onOpenChange={handleCreateBookPopoverChange}>
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger onClick={(e) => e.stopPropagation()} className="outline-none">
+          {children}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="z-10" onClick={(e) => e.stopPropagation()} align="start" side="right">
+          <DropdownMenuItem Icon={FilePlus2}>Create Note</DropdownMenuItem>
+          <DropdownMenuItem Icon={BookPlus} onSelect={() => setVisibleCreateBook(true)}>
             Create Children Book
-          </CreateBookPopover>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem Icon={FolderPen}>Rename</DropdownMenuItem>
-        <DropdownMenuItem Icon={ChevronsUpDown} onClick={onExpandAll}>
-          Expand All
-        </DropdownMenuItem>
-        <DropdownMenuItem Icon={Trash}>Delete Notebook</DropdownMenuItem>
-        <DropdownMenuSeparator />
-      </DropdownMenuContent>
-    </DropdownMenu>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem Icon={FolderPen}>Rename</DropdownMenuItem>
+          <DropdownMenuItem Icon={ChevronsUpDown} onClick={onExpandAll}>
+            Expand All
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive" Icon={Trash}>
+            Delete Notebook
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <CreateBookModal open={visibleCreateBook} onOpenChange={setVisibleCreateBook} parentBookId={book.id} />
+    </>
   )
 }

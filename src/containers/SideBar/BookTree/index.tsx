@@ -1,28 +1,39 @@
 'use client'
 
 import { ChevronRight, EllipsisVertical } from 'lucide-react'
+import { useParams } from 'next/navigation'
 import { useState } from 'react'
 
 import Collapsible, { CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible'
-import { useDisclosure } from '@/hooks/useDisclosure'
-import { usePathname, useRouter } from '@/navigation'
+import { useBookTree } from '@/contexts/BookTreeContext'
+import { useRouter } from '@/navigation'
 import { Book } from '@/types/book'
 import { cn } from '@/utils/className'
-import { isSubpath } from '@/utils/url'
 
 import BookMenu from './BookMenu'
+import { containChild } from './helper'
+import { CreateBookButton } from '../CreateBookButton'
 
 export type BookTreeProps = {
   books: Book[]
   indent?: boolean
-  workspaceId: string
 }
 
-export default function BookTree({ books, indent = true, workspaceId }: BookTreeProps) {
+export default function BookTreeSection() {
+  const { books } = useBookTree()
+  return (
+    <>
+      <BookTree books={books} indent={false} />
+      <CreateBookButton />
+    </>
+  )
+}
+
+export function BookTree({ books, indent = true }: BookTreeProps) {
   return (
     <div className="w-full">
       {books.map((book) => (
-        <BookItem key={book.id} indent={indent} workspaceId={workspaceId} book={book} />
+        <BookItem key={book.id} indent={indent} book={book} />
       ))}
     </div>
   )
@@ -31,16 +42,15 @@ export default function BookTree({ books, indent = true, workspaceId }: BookTree
 export type BookItemProps = {
   book: Book
   indent?: boolean
-  workspaceId: string
 }
-function BookItem({ book, indent, workspaceId }: BookItemProps) {
-  const [expand, setExpand] = useState(false)
-  const [openedMenu, { close: closeOpenMenu, open: openMenu }] = useDisclosure(false)
+function BookItem({ book, indent }: BookItemProps) {
   const router = useRouter()
-  const pathname = usePathname()
+  const { workspaceId, bookId } = useParams<{ workspaceId: string; bookId: string }>()
 
-  const href = `/w/${workspaceId}/b/${book.id}`
-  const isActive = isSubpath(pathname, href)
+  const [expand, setExpand] = useState(containChild(book, parseInt(bookId)))
+
+  const href = `/w/${workspaceId}/book/${book.id}`
+  const isActive = bookId === book.id.toString()
 
   return (
     <div key={book.id} className="flex w-full gap-1">
@@ -64,18 +74,15 @@ function BookItem({ book, indent, workspaceId }: BookItemProps) {
             <span className="min-w-0 flex-1 select-none truncate py-1 text-sm" title={book.title}>
               {book.title}
             </span>
-            <BookMenu book={book} open={openedMenu} onClose={closeOpenMenu} onExpandAll={() => {}}>
+            <BookMenu book={book} onExpandAll={() => {}}>
               <EllipsisVertical
-                onClick={openMenu}
                 className="cursor-pointer rounded bg-primary-300 bg-opacity-0 p-[2px] transition-all hover:bg-opacity-30"
                 size={16}
                 strokeWidth={3}
               />
             </BookMenu>
           </div>
-          <CollapsibleContent>
-            {book.books && <BookTree books={book.books} workspaceId={workspaceId} />}
-          </CollapsibleContent>
+          <CollapsibleContent>{book.books && <BookTree books={book.books} />}</CollapsibleContent>
         </Collapsible>
       </div>
     </div>

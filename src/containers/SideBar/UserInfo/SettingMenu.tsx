@@ -29,9 +29,9 @@ export default function SettingMenu() {
         <DropdownMenuItem Icon={User}>Profile</DropdownMenuItem>
         <DropdownMenuItem Icon={BrickWall}>Billing</DropdownMenuItem>
         <DropdownMenuItem Icon={Users}>Team</DropdownMenuItem>
-        <DropdownMenuItem Icon={Hammer}>SubscriptionSubscription</DropdownMenuItem>
+        <DropdownMenuItem Icon={Hammer}>Subscription Chart</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="!text-red-500" Icon={LogOut} onClick={handleLogout}>
+        <DropdownMenuItem variant="destructive" Icon={LogOut} onClick={handleLogout}>
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>

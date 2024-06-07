@@ -3,9 +3,9 @@ import { Brain, Calendar, ListTodo, Notebook, Settings, Users } from 'lucide-rea
 import { getBooksByWorkspaceId } from '@/api/book'
 import { getWorkspaces } from '@/api/workspace'
 import { Separator } from '@/components/ui/separator'
+import { BookTreeProvider } from '@/contexts/BookTreeContext'
 
-import BookTree from './BookTree'
-import { CreateBookButton } from './CreateBookButton'
+import BookTreeSection from './BookTree'
 import NavItem from './NavBar/NavItem'
 import Toolbar from './Toolbar'
 import UserInfo from './UserInfo'
@@ -36,8 +36,9 @@ export default async function Sidebar({ workspaceId }: SidebarProps) {
 
         <NavItem title="Notebook" Icon={Notebook} href={`/w/${workspaceId}`} />
         <div className="overflow-auto pr-1">
-          <BookTree books={books} workspaceId={workspaceId} indent={false} />
-          <CreateBookButton />
+          <BookTreeProvider books={books}>
+            <BookTreeSection />
+          </BookTreeProvider>
         </div>
 
         <Separator />

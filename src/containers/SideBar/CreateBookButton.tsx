@@ -12,7 +12,12 @@ export function CreateBookButton() {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <CreateBookPopover classNames={{ trigger: 'w-full' }} open={open} onOpenChange={setOpen}>
+      <CreateBookPopover
+        classNames={{ trigger: 'w-full' }}
+        open={open}
+        onOpenChange={setOpen}
+        onCreated={() => setOpen(false)}
+      >
         <div className={cn('w-full', buttonVariants({ variant: 'ghost', size: 'sm' }))}>
           <Plus size={16} />
           Create book
